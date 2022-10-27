@@ -26,7 +26,8 @@ namespace ConsoleUI
 
             /* 
              * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
+             * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart 
+             * for Motorcycle
              * Provide the implementations for the abstract methods
              * Only in the Motorcycle class will you override the virtual drive method
             */
@@ -34,7 +35,8 @@ namespace ConsoleUI
             // Create a list of Vehicle called vehicles
 
             /*
-             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
+             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit 
+             * typing) but use constuctors from derived classes
              * - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
@@ -45,6 +47,28 @@ namespace ConsoleUI
              */
 
             // Call each of the drive methods for one car and one motorcycle
+
+            var vehicles = new List<Vehicle>();
+
+            var focus = new Car() { HasTrunk = true, Make = "Ford", Model = "Focus", Year = 2013 };
+            var motorcycle = new Motorcycle() { HasSideCar = true, Make = "Harley", Model = "Warrior", Year = 2020 };
+            Vehicle sedan = new Car() { Make = "Dodge", Model = "Dart", Year = 2018 };
+            Vehicle sport = new Car() { HasTrunk = false, Make = "Lambo", Model = "Diablo", Year = 2022 };
+
+            vehicles.Add(focus);
+            vehicles.Add(motorcycle);
+            vehicles.Add(sedan);
+            vehicles.Add(sport);
+
+            foreach(var veh in vehicles)
+            {
+                Console.WriteLine($"Year: {veh.Year}");
+                Console.WriteLine($"Make: {veh.Make}");
+                Console.WriteLine($"Model: {veh.Model}");        
+                veh.DriveAbstract();
+                veh.DriveVirtual();
+                Console.WriteLine("-----------------------------");
+            }
 
             #endregion            
             Console.ReadLine();
